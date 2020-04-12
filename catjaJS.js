@@ -90,19 +90,20 @@ const selectElm = (selector) => {
 				searchChilds[i].classList.add("hideSlideShowImg");
 			}
 			searchBar.addEventListener("keyup", (e) => {
+				console.log(searchChilds);
 				e.preventDefault();
 				let value = searchBar.value.toLowerCase();
 				for (let i = 0; i < searchChilds.length; i++) {
 					let child = searchChilds[i];
 					let childValue = child.innerText.toLowerCase();
-					if (childValue.includes(value)) {
-						if (!child.classList.contains("show") && value != "") {
+					for(let j = 0; j < value.length; j++){
+						if(childValue.charAt(j) == value.charAt(j)){
 							child.classList.remove("hideSlideShowImg");
 							child.classList.add("show");
+						} else if(childValue.charAt(j) != value.charAt(j)){
+							child.classList.add("hideSlideShowImg");
+							child.classList.remove("show");
 						}
-					} else if (!childValue.includes(value)) {
-						child.classList.remove("show");
-						child.classList.add("hideSlideShowImg");
 					}
 					if (value == "") {
 						child.classList.remove("show");
