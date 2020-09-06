@@ -217,26 +217,6 @@ const chromeCast = (src, castBtn) => {
 	}
 };
 
-const lazy = (selector) => {
-	const images = document.querySelectorAll(selector);
-	images.forEach((img) => {
-		img.setAttribute("loading", "lazy");
-		img.classList.add("lazyload");
-		img.classList.add("lazyLoadingImage");
-	});
-	if ("loading" in HTMLImageElement.prototype) {
-		images.forEach((img) => {
-			img.src = img.dataset.src;
-			img.removeAttribute("data-src");
-		});
-	} else {
-		const script = document.createElement("script");
-		script.src =
-			"https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.1.8/lazysizes.min.js";
-		document.body.appendChild(script);
-	}
-};
-
 const slideShow = (selector, seconds) => {
 	const time = seconds * 1000;
 	const images = document.querySelectorAll(`${selector} img`);

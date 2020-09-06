@@ -8,8 +8,6 @@ selectElm("figure").event("click", (e) => {
 
 slideShow("figure", 2);
 
-lazy(".pictureContainer img");
-
 chromeCast(
 	"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
 	".castBtn"
